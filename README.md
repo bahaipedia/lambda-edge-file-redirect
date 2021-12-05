@@ -10,7 +10,7 @@ before lambda-bahaimedia-distribute had a chance to distribute it. It could also
 was directed to one region, while the file download (lambda determined) went to a different region. We assume if the file didn't
 go to the users primary region, it must have ended up in the US region. 
 
-This would also trigger if we setup a server but not a corresponding s3 bucket. A user who was generating page thumbnails on the fly 
+This would also trigger if we setup a server but not a corresponding s3 bucket/cloudfront origin. A user who was generating page thumbnails on the fly 
 would find that their thumbnails failed to load, because they were being generated in the US s3 bucket, but requeted in an overseas bucket, 
 and always before lambda-bahaimedia-distribute had a chance to distribute them. Upon refreshing the page the file would load, but this 
 script captures the request, sends it to the US s3 bucket and prevents the file not found error from happening. 
