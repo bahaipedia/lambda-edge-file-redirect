@@ -4,7 +4,7 @@ If a file cannot be located, redirect user to the primary s3 bucket as a last di
 See also: repository lambda-edge-bahaimedia
 
 This function captures edge cases between how we route traffic (latency) and how we route file requests (geographically). 
-We have servers and s3 buckets together in the same region so this function not be triggered that often. It could be invoked
+We have servers and s3 buckets together in the same region so this function should not be triggered that often. It could be invoked
 in the unlikely event that a user uploaded a file on the US server/s3 bucket and a user in a different region requested that file
 before lambda-bahaimedia-distribute had a chance to distribute it. It could also be invoked if a file uploaded (server determined) 
 was directed to one region, while the file download (lambda determined) went to a different region. We assume if the file didn't
